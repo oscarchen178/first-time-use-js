@@ -1,17 +1,34 @@
 // hi javascript
-console.log('hello World');
-const name = "YAuanhan"; //unchangeable variable
-let firstname = 'Oscar', lastname = 'Chen';
-firstname = "Yuanhan";
-console.log(firstname);
-let firstbool = true;
-let person = {
-    name: 'Oscar',
-    age: 19
-};
-person.age += 1;
-person['name'] = 'Simon';
-console.log(person);
 
-let array = [1,2,3,4];
-console.log(array.length);
+let oscar = {
+    name: 'Oscar',
+    the_guy_infrontof: undefined,
+    age: 19,
+    greet: function() {
+        console.log(this.name + ' says hello ' + this.the_guy_infrontof + '!')
+    }
+}
+oscar.the_guy_infrontof = 'Cindy';
+oscar.greet();
+
+//Factory function
+function createCircle(radius) {
+    return {
+        radius,
+        draw: function() {
+            console.log('Draw');
+        }
+    };
+}
+const circle = createCircle(2);
+circle.draw();
+
+//Constructor Function
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {
+        console.log('draw');
+    }
+}
+const anothercircle = new Circle(1);
+anothercircle.draw();
